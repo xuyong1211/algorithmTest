@@ -1,7 +1,9 @@
 package main.com.xy.test;
 
-import java.sql.Array;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 
 public class AlgorithmTest1 {
     public static void main(String[] args) {
@@ -41,5 +43,145 @@ public class AlgorithmTest1 {
             }
 
         }
+    }
+
+    /**
+     * 11 盛最多水的容器
+     * 给你 n 个非负整数 a1，a2，...，an，每个数代表坐标中的一个点?(i,?ai) 。在坐标内画 n 条垂直线，垂直线 i?的两个端点分别为?(i,?ai) 和 (i, 0) 。找出其中的两条线，使得它们与?x?轴共同构成的容器可以容纳最多的水。
+     * <p>
+     * 说明：你不能倾斜容器。
+     */
+
+    public int maxArea(int[] height) {
+        int left = 0;
+        int right = height.length - 1;
+        int area = 0;
+        while (left < right) {
+            int i = right - left;
+            area = height[left] < height[right] ?
+                    Math.max(area, i * height[left++]) :
+                    Math.max(area, i * height[right--]);
+//            int min = Math.min(height[left], height[right]);
+//            int tempArea = min * (right - left);
+//            if(tempArea >= area){
+//                area = tempArea;
+//            }
+//             if(height[left]< height[right]){
+//                 left++;
+//             }else {
+//                 right--;
+//             }
+        }
+
+        return area;
+    }
+
+    /**
+     * 70 爬楼梯
+     * 假设你正在爬楼梯。需要 n?阶你才能到达楼顶。
+     * <p>
+     * 每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？
+     * <p>
+     * 注意：给定 n 是一个正整数。
+     */
+    public int climbStairs(int n) {
+        int amount = 0;
+        int firstValue = 1;
+        int secondValue = 2;
+        if (n == 2) {
+            return 2;
+        }
+        if (n == 1) {
+            return 1;
+        }
+        for (int i = 1; i <= n - 2; i++) {
+            amount = firstValue + secondValue;
+            firstValue = secondValue;
+            secondValue = amount;
+        }
+        return amount;
+    }
+
+    /**
+     * 15 三数之和
+     * 给你一个包含 n 个整数的数组?nums，判断?nums?中是否存在三个元素 a，b，c ，使得?a + b + c = 0 ？请你找出所有和为 0 且不重复的三元组。
+     * <p>
+     * 注意：答案中不可以包含重复的三元组。
+     */
+    public List<List<Integer>> threeSum(int[] nums) {
+        if (nums.length < 3) {
+            return Collections.emptyList();
+        }
+        Arrays.sort(nums);
+        LinkedList<List<Integer>> result = new LinkedList<>();
+        for (int i = 0; i < nums.length - 2; i++) {
+            if (nums[i] > 0) {
+                return result;
+            }
+            if (i != 0 && (nums[i] == nums[i - 1])) {
+                continue;
+            }
+            int head = i + 1;
+            int tail = nums.length - 1;
+            int target = -nums[i];
+            while (head < tail) {
+                int sum = nums[head] + nums[tail];
+                if (target == sum) {
+                    List<Integer> integerList = Arrays.asList(nums[i], nums[head], nums[tail]);
+                    result.add(integerList);
+//                    integerList.sort(Comparator.naturalOrder());
+                    while (head < tail && nums[head] == nums[head + 1]) {
+                        head++;
+                    }
+                    while (head < tail && nums[tail] == nums[tail - 1]) {
+                        tail--;
+                    }
+                    head++;
+                    tail--;
+                } else if (target >= sum) {
+                    head++;
+                } else {
+                    tail--;
+                }
+            }
+
+        }
+        return result;
+    }
+
+    /**
+     * 141 环形链表给定一个链表，判断链表中是否有环。
+     *
+     * 如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。 如果 pos 是 -1，则在该链表中没有环。注意：pos 不作为参数进行传递，仅仅是为了标识链表的实际情况。
+     *
+     * 如果链表中存在环，则返回 true 。 否则，返回 false
+     *
+     */
+    class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int x) {
+            val = x;
+            next = null;
+        }
+    }
+
+    public boolean hasCycle(ListNode head) {
+        if (head == null || head.next == null) {
+            return false;
+        }
+        ListNode slow = head;
+        ListNode fast = head.next;
+        while (slow != fast) {
+            if (fast == null || slow == null || fast.next == null) {
+                return false;
+            }
+            slow = slow.next;
+            fast = fast.next.next;
+
+
+        }
+        return true;
     }
 }
