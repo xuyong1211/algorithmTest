@@ -231,4 +231,46 @@ public class AlgorithmTest1 {
         }
         return stack.empty();//pop 会出栈
     }
+
+
+    /**
+     * 242 有效的字母已异位词
+     *
+     *
+     * @param s
+     * @param t
+     * @return
+     */
+    public boolean isAnagram(String s, String t) {
+        char[] chars = s.toCharArray();
+        HashMap<Character,Integer> hashMap = new HashMap<Character, Integer>();
+        for (char aChar : chars) {
+            Integer integer = hashMap.get(aChar);
+            if (integer == null) {
+                hashMap.put(aChar , 1);
+            } else {
+                hashMap.put(aChar , integer + 1);
+            }
+        }
+        char[] chars1 = t.toCharArray();
+        for (char c : chars1) {
+            Integer integer = hashMap.get(c);
+            if (integer == null) {
+                return false;
+            } else if (integer > 0) {
+                int d = integer -1 ;
+                if(d == 0){
+                    hashMap.remove(c );
+                }else {
+                    hashMap.put(c, d);
+                }
+
+            } else {
+                hashMap.remove(c );
+            }
+        }
+        return hashMap.isEmpty();
+
+
+    }
 }
