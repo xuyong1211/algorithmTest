@@ -273,4 +273,145 @@ public class AlgorithmTest1 {
 
 
     }
+
+
+    /**
+     * 94 二叉树的中序遍历
+     *
+     */
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode() {
+        }
+
+        TreeNode(int val) {
+            this.val = val;
+        }
+
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
+    List<Integer> list = new ArrayList<>();
+    public List<Integer> inorderTraversal(TreeNode root) {
+        if(root != null){
+            countIntegerInOrder(root);
+        }
+        return list;
+    }
+
+
+    public void countIntegerInOrder(TreeNode root){
+        if(root == null) return ;
+        if(root.left != null){
+            countIntegerInOrder(root.left);
+        }
+        list.add(root.val);
+        if(root.right != null){
+            countIntegerInOrder(root.right);
+        }
+    }
+
+    /**
+     * 144 二叉树的前序遍历
+     *
+     *
+     */
+        public List<Integer> preorderTraversal(TreeNode root) {
+            if(root!=null){
+                countIntegerPreOrder(root);
+            }
+            return list;
+        }
+
+        public void countIntegerPreOrder(TreeNode root){
+            list.add(root.val);
+            if(root.left != null){
+                countIntegerPreOrder(root.left);
+            }
+            if(root.right != null){
+                countIntegerPreOrder(root.right);
+            }
+        }
+
+    /**
+     * 145 二叉树的后序遍历
+     *
+     */
+
+    public List<Integer> postorderTraversal(TreeNode root) {
+        if(root != null) {
+            countIntegerPostorder(root);
+        }
+        return list;
+    }
+
+    public void countIntegerPostorder (TreeNode root){
+        if(root.left!=null){
+            countIntegerPostorder(root.left);
+        }
+        if(root.right != null){
+            countIntegerPostorder(root.right);
+        }
+        list.add(root.val);
+    }
+    /**
+     * 590 N叉树的后序遍历
+     *
+     */
+
+    class NNode {
+    public int val;
+    public List<NNode> children;
+
+    public NNode() {}
+
+    public NNode(int _val) {
+        val = _val;
+    }
+
+    public NNode(int _val, List<NNode> _children) {
+        val = _val;
+        children = _children;
+    }
+}
+    public List<Integer> postorder(NNode root) {
+        countIntegerN(root);
+        return list;
+    }
+
+    public void countIntegerN(NNode root){
+        if(root == null) return;
+        if(root.children != null){
+            for (NNode child : root.children) {
+                countIntegerN(child);
+            }
+        }
+        list.add(root.val);
+    }
+
+    /**
+     * 589 N叉树的前序遍历
+     *
+     */
+
+    public List<Integer> preorder(NNode root) {
+        countIntegerNPost(root);
+        return list;
+    }
+
+    public void countIntegerNPost(NNode root) {
+        if(root == null) return;
+        list.add(root.val);
+        if(root.children != null){
+            for (NNode child : root.children) {
+                countIntegerNPost(child);
+            }
+        }
+    }
 }
