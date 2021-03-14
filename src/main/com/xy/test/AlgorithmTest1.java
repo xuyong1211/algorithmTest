@@ -551,4 +551,41 @@ public class AlgorithmTest1 {
 
     }
 
+    /**
+     * 429 N叉树的层序遍历
+     */
+    HashMap<Integer, List<Integer>> hashMap = new HashMap<>();
+    public List<List<Integer>> levelOrder(Node root) {
+        List<List<Integer>> returns = new ArrayList<>();
+        countNode(returns,root,0);
+//        Set<Integer> integers = hashMap.keySet();
+//        for (Integer integer : integers) {
+//            returns.add(hashMap.get(integer));
+//        }
+        return returns;
+    }
+
+
+    public void countNode( List<List<Integer>> returns,Node node,int deep) {
+        if(node == null) return;
+        if(returns.size() -1 <deep){
+            returns.add(new ArrayList<>());
+        }
+        returns.get(deep).add(node.val);
+//        if(hashMap.get(deep) == null){
+//            List<Integer> objects = new ArrayList<>();
+//            objects.add(node.val);
+//            hashMap.put(deep,objects);
+//        }else {
+//            List<Integer> integerList = hashMap.get(deep);
+//            integerList.add(node.val);
+//            hashMap.put(deep,integerList);
+//        }
+        ++deep;
+        for (Node child : node.children) {
+            countNode(returns,child,deep);
+        }
+
+
+    }
 }
