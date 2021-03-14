@@ -516,4 +516,39 @@ public class AlgorithmTest1 {
         }
         return returns;
     }
+    /**
+     * 102 二叉树的层序遍历
+     *
+     */
+
+    HashMap<Integer, List<Integer>> hashMap = new HashMap<>();
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        countNode(root,0);
+        Set<Integer> integers = hashMap.keySet();
+        List<List<Integer>> returns = new ArrayList<>();
+        for (Integer integer : integers) {
+            returns.add(hashMap.get(integer));
+        }
+        return returns;
+    }
+
+
+    public void countNode(TreeNode node,int deep) {
+        if(node == null) return;
+
+        if(hashMap.get(deep) == null){
+            List<Integer> objects = new ArrayList<>();
+            objects.add(node.val);
+            hashMap.put(deep,objects);
+        }else {
+            List<Integer> integerList = hashMap.get(deep);
+            integerList.add(node.val);
+            hashMap.put(deep,integerList);
+        }
+        ++deep;
+        countNode(node.left,deep);
+        countNode(node.right,deep);
+
+    }
+
 }
