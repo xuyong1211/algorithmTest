@@ -414,4 +414,106 @@ public class AlgorithmTest1 {
             }
         }
     }
+
+    /**
+     * 剑指offer 49 抽数
+     *
+     * 我们把只包含质因子 2、3 和 5 的数称作丑数（Ugly Number）。求按从小到大的顺序的第 n 个丑数。
+     *
+     * ?
+     */
+
+    public int nthUglyNumber(int n) {
+        int a = 0 ,b = 0 ,c = 0;
+        int[] uglys = new int[n];
+        uglys[0] = 1;
+        for (int i = 1; i < n; i++) {
+            uglys[i] = Math.min(Math.min(uglys[a]*2,uglys[b]*3),uglys[c]*5);
+            if(uglys[a]*2 <= uglys[i]) a++;
+            if(uglys[b]*3 <= uglys[i]) b++;
+            if(uglys[c]*5 <= uglys[i]) c++;
+        }
+
+        return uglys[n-1];
+    }
+
+    /**
+     * 剑指offer40 最小的K个数
+     *
+     */
+
+    public int[] getLeastNumbers(int[] arr, int k) {
+        if(k == 0)return new int[0];
+        PriorityQueue<Integer> queue = new PriorityQueue<>(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o2 - o1;
+            }
+        });
+        int length = arr.length;
+        for (int i = 0; i < length; i++) {
+            if(i < k){
+                queue.offer(arr[i]);
+            }else {
+                Integer peek = queue.peek();
+                if(peek > arr[i]){
+                    queue.poll();
+                    queue.offer(arr[i]);
+                }
+            }
+        }
+        int[] returns = new int[queue.size()];
+        int j = 0 ;
+        for (Integer integer : queue) {
+            returns[j++] = integer;
+        }
+        return returns;
+    }
+
+    /**
+     * 347 前K个 高频元素
+     * @param nums
+     * @param k
+     * @return
+     */
+
+    public int[] topKFrequent(int[] nums, int k) {
+        HashMap<Integer,Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            Integer count = map.get(nums[i]);
+            if(count == null){
+                map.put(nums[i],1);
+            }else {
+                map.put(nums[i],++count);
+            }
+        }
+        PriorityQueue<Integer> queue = new PriorityQueue<>(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return map.get(o1) - map.get(o2);
+            }
+        });
+
+        Set<Integer> integers = map.keySet();
+        int size = integers.size();
+        int j = 0;
+        for (Integer integer : integers) {
+            if(j < k){
+                queue.offer(integer);
+            }else {
+                if(map.get(queue.peek()) < map.get(integer)){
+                    queue.poll();
+                    queue.offer(integer);
+                }
+            }
+            j++;
+        }
+        int i = 0;
+        int[] returns = new int[queue.size()];
+        for (Integer integer : queue) {
+            returns[i] = integer.intValue();
+            i++;
+        }
+        return returns;
+    }
 }
