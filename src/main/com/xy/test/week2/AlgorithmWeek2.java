@@ -1,4 +1,4 @@
-package main.com.xy.test;
+package main.com.xy.test.week2;
 
 import java.util.ArrayList;
 import java.util.Arrays;

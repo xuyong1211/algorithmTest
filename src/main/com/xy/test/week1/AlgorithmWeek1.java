@@ -1,3 +1,4 @@
+/*
 package main.com.xy.test;
 
 import java.util.*;
@@ -10,7 +11,8 @@ public class AlgorithmWeek1 {
     }
 
 
-    /**
+    */
+/**
      * 283. 移动零
      * 给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。
      * <p>
@@ -28,7 +30,8 @@ public class AlgorithmWeek1 {
      * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
      *
      * @param nums
-     */
+     *//*
+
     public static void moveZeroes(int[] nums) {
         int j = 0;
         for (int i = 0; i < nums.length; i++) {
@@ -42,12 +45,14 @@ public class AlgorithmWeek1 {
         }
     }
 
-    /**
+    */
+/**
      * 11 盛最多水的容器
      * 给你 n 个非负整数 a1，a2，...，an，每个数代表坐标中的一个点?(i,?ai) 。在坐标内画 n 条垂直线，垂直线 i?的两个端点分别为?(i,?ai) 和 (i, 0) 。找出其中的两条线，使得它们与?x?轴共同构成的容器可以容纳最多的水。
      * <p>
      * 说明：你不能倾斜容器。
-     */
+     *//*
+
 
     public int maxArea(int[] height) {
         int left = 0;
@@ -73,14 +78,16 @@ public class AlgorithmWeek1 {
         return area;
     }
 
-    /**
+    */
+/**
      * 70 爬楼梯
      * 假设你正在爬楼梯。需要 n?阶你才能到达楼顶。
      * <p>
      * 每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？
      * <p>
      * 注意：给定 n 是一个正整数。
-     */
+     *//*
+
     public int climbStairs(int n) {
         int amount = 0;
         int firstValue = 1;
@@ -99,12 +106,14 @@ public class AlgorithmWeek1 {
         return amount;
     }
 
-    /**
+    */
+/**
      * 15 三数之和
      * 给你一个包含 n 个整数的数组?nums，判断?nums?中是否存在三个元素 a，b，c ，使得?a + b + c = 0 ？请你找出所有和为 0 且不重复的三元组。
      * <p>
      * 注意：答案中不可以包含重复的三元组。
-     */
+     *//*
+
     public List<List<Integer>> threeSum(int[] nums) {
         if (nums.length < 3) {
             return Collections.emptyList();
@@ -146,14 +155,16 @@ public class AlgorithmWeek1 {
         return result;
     }
 
-    /**
+    */
+/**
      * 141 环形链表给定一个链表，判断链表中是否有环。
      *
      * 如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。 如果 pos 是 -1，则在该链表中没有环。注意：pos 不作为参数进行传递，仅仅是为了标识链表的实际情况。
      *
      * 如果链表中存在环，则返回 true 。 否则，返回 false
      *
-     */
+     *//*
+
     class ListNode {
         int val;
         ListNode next;
@@ -182,11 +193,13 @@ public class AlgorithmWeek1 {
         return true;
     }
 
-    /**
+    */
+/**
      * 1 两数之和
      *hash 表解法
     *
-     */
+     *//*
+
 
     public int[] twoSum(int[] nums, int target) {
         HashMap<Integer,Integer> map = new HashMap<>();
@@ -203,6 +216,7 @@ public class AlgorithmWeek1 {
     }
 
 
+*/
 /**
  * 20 有效括号
  *
@@ -212,7 +226,8 @@ public class AlgorithmWeek1 {
  *
  * 左括号必须用相同类型的右括号闭合。
  * 左括号必须以正确的顺序闭合。
-* */
+* *//*
+
 
     public boolean isValid(String s) {
         char[] chars = s.toCharArray();
@@ -233,14 +248,16 @@ public class AlgorithmWeek1 {
     }
 
 
-    /**
+    */
+/**
      * 242 有效的字母已异位词
      *
      *
      * @param s
      * @param t
      * @return
-     */
+     *//*
+
     public boolean isAnagram(String s, String t) {
         char[] chars = s.toCharArray();
         HashMap<Character,Integer> hashMap = new HashMap<Character, Integer>();
@@ -275,10 +292,12 @@ public class AlgorithmWeek1 {
     }
 
 
-    /**
+    */
+/**
      * 94 二叉树的中序遍历
      *
-     */
+     *//*
+
     public class TreeNode {
         int val;
         TreeNode left;
@@ -317,11 +336,13 @@ public class AlgorithmWeek1 {
         }
     }
 
-    /**
+    */
+/**
      * 144 二叉树的前序遍历
      *
      *
-     */
+     *//*
+
         public List<Integer> preorderTraversal(TreeNode root) {
             if(root!=null){
                 countIntegerPreOrder(root);
@@ -339,10 +360,12 @@ public class AlgorithmWeek1 {
             }
         }
 
-    /**
+    */
+/**
      * 145 二叉树的后序遍历
      *
-     */
+     *//*
+
 
     public List<Integer> postorderTraversal(TreeNode root) {
         if(root != null) {
@@ -360,10 +383,12 @@ public class AlgorithmWeek1 {
         }
         list.add(root.val);
     }
-    /**
+    */
+/**
      * 590 N叉树的后序遍历
      *
-     */
+     *//*
+
 
     class NNode {
     public int val;
@@ -395,10 +420,12 @@ public class AlgorithmWeek1 {
         list.add(root.val);
     }
 
-    /**
+    */
+/**
      * 589 N叉树的前序遍历
      *
-     */
+     *//*
+
 
     public List<Integer> preorder(NNode root) {
         countIntegerNPost(root);
@@ -415,13 +442,15 @@ public class AlgorithmWeek1 {
         }
     }
 
-    /**
+    */
+/**
      * 剑指offer 49 抽数
      *
      * 我们把只包含质因子 2、3 和 5 的数称作丑数（Ugly Number）。求按从小到大的顺序的第 n 个丑数。
      *
      * ?
-     */
+     *//*
+
 
     public int nthUglyNumber(int n) {
         int a = 0 ,b = 0 ,c = 0;
@@ -437,10 +466,12 @@ public class AlgorithmWeek1 {
         return uglys[n-1];
     }
 
-    /**
+    */
+/**
      * 剑指offer40 最小的K个数
      *
-     */
+     *//*
+
 
     public int[] getLeastNumbers(int[] arr, int k) {
         if(k == 0)return new int[0];
@@ -470,12 +501,14 @@ public class AlgorithmWeek1 {
         return returns;
     }
 
-    /**
+    */
+/**
      * 347 前K个 高频元素
      * @param nums
      * @param k
      * @return
-     */
+     *//*
+
 
     public int[] topKFrequent(int[] nums, int k) {
         HashMap<Integer,Integer> map = new HashMap<>();
@@ -516,10 +549,12 @@ public class AlgorithmWeek1 {
         }
         return returns;
     }
-    /**
+    */
+/**
      * 102 二叉树的层序遍历
      *
-     */
+     *//*
+
 
     HashMap<Integer, List<Integer>> hashMap = new HashMap<>();
     public List<List<Integer>> levelOrder(TreeNode root) {
@@ -551,9 +586,11 @@ public class AlgorithmWeek1 {
 
     }
 
-    /**
+    */
+/**
      * 429 N叉树的层序遍历
-     */
+     *//*
+
     HashMap<Integer, List<Integer>> hashMap = new HashMap<>();
     public List<List<Integer>> levelOrder(Node root) {
         List<List<Integer>> returns = new ArrayList<>();
@@ -589,3 +626,4 @@ public class AlgorithmWeek1 {
 
     }
 }
+*/
