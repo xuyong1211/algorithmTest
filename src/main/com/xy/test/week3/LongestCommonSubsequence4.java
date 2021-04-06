@@ -24,16 +24,5 @@ public class LongestCommonSubsequence4 {
         return nums[m][n];
     }
 
-    public int maxSubArray(int[] nums) {
-        /**
-         * 在保包含最后一位的子序列的最大和 为 不包含最后以为但包含倒数第二位的子序列最大和+最后一位 和 最后一位  的较大者
-         */
-
-        int[] maxs = nums;
-        for (int i = 0; i < nums.length; i++) {
-            maxs[i] = Math.max(maxs[i-1],0) + maxs[i];
-        }
-        return maxs[maxs.length-1];
-    }
 
 }
