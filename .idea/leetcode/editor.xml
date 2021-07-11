@@ -3,6 +3,14 @@
   <component name="LeetcodeEditor">
     <option name="projectConfig">
       <map>
+        <entry key="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[1028]从先序遍历还原二叉树.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[1028]从先序遍历还原二叉树.java" />
+              <option name="questionId" value="1093" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[102]二叉树的层序遍历.java">
           <value>
             <LeetcodeEditor>
@@ -16,6 +24,14 @@
             <LeetcodeEditor>
               <option name="path" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[104]二叉树的最大深度.java" />
               <option name="questionId" value="104" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[105]从前序与中序遍历序列构造二叉树.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[105]从前序与中序遍历序列构造二叉树.java" />
+              <option name="questionId" value="105" />
             </LeetcodeEditor>
           </value>
         </entry>
@@ -424,6 +440,14 @@
             <LeetcodeEditor>
               <option name="path" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[66]加一.java" />
               <option name="questionId" value="66" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[6]Z 字形变换.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[6]Z 字形变换.java" />
+              <option name="questionId" value="6" />
             </LeetcodeEditor>
           </value>
         </entry>
